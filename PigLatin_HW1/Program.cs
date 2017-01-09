@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace PigLatin_HW1
 {
@@ -11,38 +12,16 @@ namespace PigLatin_HW1
         static void Main(string[] args)
         {
 
-            //bool isUserWrong = true;
-
-            //while (isUserWrong)
-            //{
-
-            //    Console.WriteLine("Please enter a single word that contains" +
-            //        " 5 characters or less: ");
-
-            //    string userStr = Console.ReadLine();
-
-            //    if (userStr.Length <= 5)
-            //    {
-            //        ChangeString(userStr);
-            //        isUserWrong = false;
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("String is not the right length." +
-            //            " Please try again. ");
-            //        Console.ReadLine();
-            //        Console.Clear();
-            //    };
-            //}
-
             Console.WriteLine("Please enter your word or phrase: ");
 
             string userStr = Console.ReadLine();
 
             string lowerStr = userStr.ToLower();
+
             char[] vowelArray = { 'a', 'e', 'i', 'o', 'u' };
 
             foreach (string word in lowerStr.Split(' ')) {
+
                 //If a word starts with a vowel, add the word "way" to the end of the word
                 if (vowelArray.Contains<char>(word[0]))
                 {
@@ -65,9 +44,10 @@ namespace PigLatin_HW1
                 {
                     Console.Write(word.Substring(1) + word[0] + "ay ");
                 }
+
             }
 
-            Console.ReadLine();
+            Console.WriteLine();
 
         }
     }
