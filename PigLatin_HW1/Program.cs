@@ -13,10 +13,12 @@ namespace PigLatin_HW1
         {
 
             Console.WriteLine("Please enter your word or phrase: ");
-
             string userStr = Console.ReadLine();
 
-            string lowerStr = userStr.ToLower();
+            Program p = new Program();
+            string noSpecials = p.RemoveSpecials(userStr);
+
+            string lowerStr = noSpecials.ToLower();
 
             char[] vowelArray = { 'a', 'e', 'i', 'o', 'u' };
 
@@ -49,6 +51,15 @@ namespace PigLatin_HW1
 
             Console.WriteLine();
 
+        }
+
+        public string RemoveSpecials(string userStr)
+        {
+            userStr = userStr.Replace("!", "");
+            userStr = userStr.Replace(".", "");
+            userStr = userStr.Replace("'", "");
+            userStr = userStr.Replace("\"", "");
+            return userStr;
         }
     }
 }
