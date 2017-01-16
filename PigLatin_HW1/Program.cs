@@ -63,6 +63,10 @@ namespace PigLatin_HW1
                 {
                     userStop = false;
                 }
+                else
+                {
+                    Console.Clear();
+                }
 
             }
         }
