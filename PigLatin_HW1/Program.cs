@@ -20,8 +20,7 @@ namespace PigLatin_HW1
                 Console.WriteLine("Please enter your word or phrase: ");
                 string userStr = Console.ReadLine();
 
-                Program p = new Program();
-                string noSpecials = p.RemoveSpecials(userStr);
+                string noSpecials = RemoveSpecials(userStr);
 
                 string lowerStr = noSpecials.ToLower();
 
@@ -31,15 +30,15 @@ namespace PigLatin_HW1
                 {
 
                     //If a word starts with a vowel, add the word "way" to the end of the word
-                    if (vowelArray.Contains<char>(word[0]))
+                    if (vowelArray.Contains(word[0]))
                     {
                         Console.Write(word + "way ");
                     }
 
                     //If a word starts with two consonants, move the two first letters
                     //to the end of the word and add "ay"
-                    else if (!vowelArray.Contains<char>(word[0]) &&
-                    !vowelArray.Contains<char>(word[1]))
+                    else if (!vowelArray.Contains(word[0]) &&
+                    !vowelArray.Contains(word[1]))
                     {
                         Console.Write(word.Substring(2) + word[0] +
                             word[1] + "ay ");
@@ -47,8 +46,8 @@ namespace PigLatin_HW1
 
                     //If a word starts with a consonant and a vowel, put the first letter at
                     //the end of the word and add "ay"
-                    else if (!vowelArray.Contains<char>(word[0]) &&
-                    vowelArray.Contains<char>(word[1]))
+                    else if (!vowelArray.Contains(word[0]) &&
+                    vowelArray.Contains(word[1]))
                     {
                         Console.Write(word.Substring(1) + word[0] + "ay ");
                     }
@@ -68,7 +67,7 @@ namespace PigLatin_HW1
             }
         }
 
-        public string RemoveSpecials(string userStr)
+        public static string RemoveSpecials(string userStr)
         {
             userStr = userStr.Replace("!", "");
             userStr = userStr.Replace(".", "");
